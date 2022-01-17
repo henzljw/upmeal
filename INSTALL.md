@@ -28,4 +28,8 @@ Step 7: Run the following application in the command prompt // terminal in the c
 
     $ php artisan serve
 
-Step 8: Open the localhost link and you are able to test the following application. Enjoy 😉
+Step 8: Open the localhost link and you are able to test the following application.
+
+Step 9: Configure some stuff that required to take note on README.md in order to ensure certain features can function well. 
+
+Step 10: Enjoy 😉
