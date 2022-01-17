@@ -21,9 +21,9 @@
                     {{-- <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Saved') }}
                     </x-jet-nav-link> --}}
-                    {{-- <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('List') }}
-                    </x-jet-nav-link> --}}
+                    <x-jet-nav-link href="{{ route('checklists') }}" :active="request()->routeIs('checklists')">
+                        {{ __('Lists') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('profile') }}" :active="request()->routeIs('profile')">
                         {{ __('Profile') }}
                     </x-jet-nav-link>
@@ -118,12 +118,16 @@
                                 {{ Auth::user()->name }}
                             </div>
                             <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
+                            {{-- <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
-                            </div>
+                            </div> --}}
 
                             <x-jet-dropdown-link href="{{ route('profile') }}">
                                 {{ __('Profile') }}
+                            </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link href="{{ route('checklists') }}">
+                                {{ __('Lists') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

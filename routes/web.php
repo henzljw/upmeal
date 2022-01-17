@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ChecklistsController;
+
 require_once __DIR__ . '/jetstream.php';
 
 /*
@@ -30,3 +32,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
 
 // View profile page - view.blade.php
 Route::view('/profile', 'profile.view')->name('profile');
+
+// Checklist's && Shopping list's routing
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/checklists', [ChecklistsController::class, 'index'])->name('checklists');
+
+    Route::get('/checklist', [ChecklistsController::class, 'add']);
+    Route::post('/checklist', [ChecklistsController::class, 'create']);
+
+    Route::get('/checklist/{checklist}', [ChecklistsController::class, 'edit']);
+    Route::post('/checklist/{checklist}', [ChecklistsController::class, 'update']);
+});
