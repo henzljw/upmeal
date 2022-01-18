@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ChecklistsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,35 +20,25 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
-
+// MULTI AUTH
 Route::get('/', [HomeController::class, 'checkUserType']);
 
-// ADM: Admin dashboard page
+// ADMIN DASHBOARD
 Route::get('/admin/dashboard', function () {
     return view('admin-dashboard');
 })->name('admin.dashboard');
 
-// USR: Home page
+Route::get('/admin/dashboard', [DashboardController::class, 'totalUsers'])->name('admin.dashboard');
+
+// USER DASHBOARD / HOME
 Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-// Home page - home.blade.php
-// Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
-//     return view('home');
-// })->name('home');
-
-// View profile page - view.blade.php
+// USER PROFILE
 Route::view('/profile', 'profile.view')->name('profile');
 
-// Checklist's && Shopping list's routing
+// CHECKLIST / SHOPPING LIST
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/checklists', [ChecklistsController::class, 'index'])->name('checklists');
 
@@ -56,3 +48,18 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/checklist/{checklist}', [ChecklistsController::class, 'edit']);
     Route::post('/checklist/{checklist}', [ChecklistsController::class, 'update']);
 });
+
+
+// UNUSED CODE
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
+//     return view('home');
+// })->name('home');
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
