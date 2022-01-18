@@ -13,6 +13,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            spacing: {
+                '13': '3.4rem',
+            },
         },
     },
 

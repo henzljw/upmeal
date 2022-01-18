@@ -1,10 +1,11 @@
 <?php
 
+require_once __DIR__ . '/jetstream.php';
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ChecklistsController;
-
-require_once __DIR__ . '/jetstream.php';
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +18,30 @@ require_once __DIR__ . '/jetstream.php';
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
-// Home page - home.blade.php
-Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
+Route::get('/', [HomeController::class, 'checkUserType']);
+
+// ADM: Admin dashboard page
+Route::get('/admin/dashboard', function () {
+    return view('admin-dashboard');
+})->name('admin.dashboard');
+
+// USR: Home page
+Route::get('/home', function () {
     return view('home');
 })->name('home');
+
+// Home page - home.blade.php
+// Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
+//     return view('home');
+// })->name('home');
 
 // View profile page - view.blade.php
 Route::view('/profile', 'profile.view')->name('profile');

@@ -4,40 +4,44 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
-                    </a>
-                </div>
+                @if (Auth::user()->user_type === 'ADM')
+                    <div class="shrink-0 flex items-center">
+                        <a href="{{ route('admin.dashboard') }}">
+                            <x-jet-application-mark class="block h-9 w-auto" />
+                        </a>
+                    </div>
+                @elseif (Auth::user()->user_type === 'USR')
+                    <div class="shrink-0 flex items-center">
+                        <a href="{{ route('home') }}">
+                            <x-jet-application-mark class="block h-9 w-auto" />
+                        </a>
+                    </div>
+                @endif
 
                 <!-- Navigation Links -->
+                @if (Auth::user()->user_type === 'ADM')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
+                            {{ __('Admin Dashboard') }}
+                        </x-jet-nav-link>
+                    </div>
+                @elseif (Auth::user()->user_type === 'USR')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                            {{ __('Home') }}
+                        </x-jet-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
+                        <x-jet-nav-link href="{{ route('checklists') }}" :active="request()->routeIs('checklists')">
+                            {{ __('Lists') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
-                    <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('Home') }}
-                    </x-jet-nav-link>
-                    {{-- <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('Recommend') }}
-                    </x-jet-nav-link> --}}
-                    {{-- <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('Saved') }}
-                    </x-jet-nav-link> --}}
-                    <x-jet-nav-link href="{{ route('checklists') }}" :active="request()->routeIs('checklists')">
-                        {{ __('Lists') }}
-                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('profile') }}" :active="request()->routeIs('profile')">
                         {{ __('Profile') }}
                     </x-jet-nav-link>
                 </div>
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('List') }}
-                    </x-jet-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('Profile') }}
-                    </x-jet-nav-link>
-                </div> --}}
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -122,14 +126,21 @@
                                 {{ __('Manage Account') }}
                             </div> --}}
 
+                            @if (Auth::user()->user_type === 'ADM')
+                                <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
+                                    {{ __('Dashboard') }}
+                                </x-jet-dropdown-link>
+                            @elseif (Auth::user()->user_type === 'USR')
+                                <x-jet-dropdown-link href="{{ route('home') }}">
+                                    {{ __('Home') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('checklists') }}">
+                                    {{ __('Lists') }}
+                                </x-jet-dropdown-link>
+                            @endif
                             <x-jet-dropdown-link href="{{ route('profile') }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
-
-                            <x-jet-dropdown-link href="{{ route('checklists') }}">
-                                {{ __('Lists') }}
-                            </x-jet-dropdown-link>
-
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}
@@ -167,11 +178,19 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                {{ __('Home') }}
-            </x-jet-responsive-nav-link>
-        </div>
+        @if (Auth::user()->user_type === 'ADM')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-jet-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
+                    {{ __('Dashboard') }}
+                </x-jet-responsive-nav-link>
+            </div>
+        @elseif (Auth::user()->user_type === 'USR')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                    {{ __('Home') }}
+                </x-jet-responsive-nav-link>
+            </div>
+        @endif
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
@@ -187,10 +206,22 @@
                     <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                 </div>
             </div>
-
+            
             <div class="mt-3 space-y-1">
+                @if (Auth::user()->user_type === 'ADM')
+                    <x-jet-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-jet-responsive-nav-link>
+                @elseif (Auth::user()->user_type === 'USR')
+                    <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                        {{ __('Home') }}
+                    </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link href="{{ route('checklists') }}" :active="request()->routeIs('checklists')">
+                        {{ __('List') }}
+                    </x-jet-responsive-nav-link>
+                @endif
                 <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                <x-jet-responsive-nav-link href="{{ route('profile') }}" :active="request()->routeIs('profile')">
                     {{ __('Profile') }}
                 </x-jet-responsive-nav-link>
 
