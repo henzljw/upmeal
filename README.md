@@ -6,4 +6,4 @@ The installation guides can be found at the [INSTALL.md](INSTALL.md) which is lo
 
 ## License
 
-The upmeal is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Upmeal is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

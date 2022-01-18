@@ -24,12 +24,18 @@ Step 6: Generate a new application key in the command prompt // terminal in the 
 
     $ php artisan key:generate
 
-Step 7: Run the following application in the command prompt // terminal in the cloned repository folder.
+Step 7: Create a new database called upmeal in the phpmyadmin.
+
+Step 8: Migrate the database by executing the command that shown as below in the command prompt // terminal.
+
+    $ php artisan migrate
+
+Step 9: Run the following application in the command prompt // terminal in the cloned repository folder.
 
     $ php artisan serve
 
-Step 8: Open the localhost link and you are able to test the following application.
+Step 10: Open the localhost link, http://127.0.0.1:8000 to run the following application.
 
-Step 9: Configure some stuff that required to take note on README.md in order to ensure certain features can function well. 
+Step 11: Configure some stuff that required to take note on README.md in order to ensure certain features can function well. 
 
-Step 10: Enjoy 😉
+Step 12: Enjoy 😉
