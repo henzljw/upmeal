@@ -7,14 +7,10 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function show()
+    // SHOW USER LIST
+    function show()
     {
-        $list = User::all();
-        return view('admin-dashboard', ['users' => $list]);
+        $users = User::all();
+        return view('user.user-list', ['users' => $users]);
     }
-    // public function userLists()
-    // {
-    //     $userLists = User::all();
-    //     return view('admin-dashboard', compact('userLists'));
-    // }
 }
