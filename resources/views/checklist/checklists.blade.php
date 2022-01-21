@@ -22,6 +22,7 @@
                         <tr class="border-b">
                             <th class="text-left p-3 px-5">Items</th>
                             <th class="text-left p-3 px-5">Quantity</th>
+                            <th class="text-left p-3 px-5">Created at</th>
                             <th class="text-left p-3 px-5">Actions</th>
                             <th></th>
                         </tr>
@@ -34,6 +35,9 @@
                                 </td>
                                 <td class="p-3 px-5">
                                     {{ $checklist->quantity }}
+                                </td>
+                                <td class="p-3 px-5">
+                                    {{ $checklist->created_at }}
                                 </td>
                                 <td class="p-3 px-5">
 
