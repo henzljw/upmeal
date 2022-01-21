@@ -12,7 +12,8 @@
                     <div class="flex-auto text-2xl mb-4"></div>
 
                     <div class="flex-auto text-right mt-2">
-                        <a href="/checklist" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <a href="/checklist"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Add items
                         </a>
                     </div>
@@ -40,11 +41,12 @@
                                     {{ $checklist->created_at }}
                                 </td>
                                 <td class="p-3 px-5">
-
                                     <a href="/checklist/{{ $checklist->id }}" name="edit"
                                         class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</a>
-                                    <form action="/checklist/{{ $checklist->id }}" class="inline-block">
-                                        <button type="submit" name="delete" formmethod="POST"
+                                    <form action="{{ route('checklist.destroy', $checklist->id) }}"
+                                        class="inline-block">
+                                        @method('DELETE')
+                                        <button type="submit" name="delete" formmethod="POST" onclick="return confirm('Are you sure to delete the selected items?')"
                                             class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
                                         {{ csrf_field() }}
                                     </form>

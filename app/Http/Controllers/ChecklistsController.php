@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Checklist;
+use Brian2694\Toastr\Facades\Toastr;
 
 class ChecklistsController extends Controller
 {
@@ -30,6 +31,12 @@ class ChecklistsController extends Controller
         $checklist->quantity = $request->quantity;
         $checklist->user_id = auth()->user()->id;
         $checklist->save();
+
+        Toastr::success($checklist->item . ' is added successfully', 'Success', [
+            'positionClass' => 'toast-top-right',
+            'progressBar' => 'true',
+            'closeButton' => 'true',
+        ]);
         return redirect('/checklists');
     }
 
@@ -42,21 +49,31 @@ class ChecklistsController extends Controller
         }
     }
 
-    public function update(Request $request, Checklist $checklist)
+    // public function update(Request $request, Checklist $checklist)
+    // {
+    //     if (isset($_POST['delete'])) {
+    //         $checklist->delete();
+    //         return redirect('/checklists');
+    //     } else {
+    //         $this->validate($request, [
+    //             'item' => 'required',
+    //             'quantity' => 'required'
+    //         ]);
+    //         $checklist->item = $request->item;
+    //         $checklist->quantity = $request->quantity;
+    //         $checklist->save();
+    //         return redirect('/checklists');
+    //     }
+    // }
+
+    public function delete($id)
     {
-        if(isset($_POST['delete'])) {
-            $checklist->delete();
-            return redirect('/checklists');
-        }
-        else {
-            $this->validate($request, [
-                'item' => 'required',
-                'quantity' => 'required'
-            ]);
-            $checklist->item = $request->item;
-            $checklist->quantity = $request->quantity;
-            $checklist->save();
-            return redirect('/checklists');
-        }
+        Checklist::find($id)->delete();
+        Toastr::warning('Item is deleted successfully', 'Warning', [
+            'positionClass' => 'toast-top-right',
+            'progressBar' => 'true',
+            'closeButton' => 'true',
+        ]);
+        return back();
     }
 }
