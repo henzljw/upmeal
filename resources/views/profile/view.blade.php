@@ -16,7 +16,7 @@
                     <div class="pl-2">
                         Joined at {{ Auth::user()->created_at->format('M d, Y') }}
                     </div>
-                    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-1 mx-2 py-2 px-4 rounded" href="{{ route('profile.show') }}" role="button">Edit profile</a>
+                    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-1 mx-2 py-2 px-4 rounded" href="{{ url('profile/edit') }}" role="button">Edit profile</a>
                 </div>
             </div>
         </div>
