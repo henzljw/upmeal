@@ -43,12 +43,15 @@ Route::view('/profile', 'profile.view')->name('profile');
 
 // CHECKLIST / SHOPPING LIST
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    
     Route::get('/checklists', [ChecklistsController::class, 'index'])->name('checklists');
 
     Route::get('/checklist', [ChecklistsController::class, 'add']);
     Route::post('/checklist', [ChecklistsController::class, 'create']);
 
     Route::get('/checklist/{checklist}', [ChecklistsController::class, 'edit']);
+    Route::post('/checklist/{checklist}', [ChecklistsController::class, 'update']);
+
     Route::delete('/checklist/{checklist}', [ChecklistsController::class, 'delete'])->name('checklist.destroy');
 });
 

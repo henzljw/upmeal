@@ -49,22 +49,22 @@ class ChecklistsController extends Controller
         }
     }
 
-    // public function update(Request $request, Checklist $checklist)
-    // {
-    //     if (isset($_POST['delete'])) {
-    //         $checklist->delete();
-    //         return redirect('/checklists');
-    //     } else {
-    //         $this->validate($request, [
-    //             'item' => 'required',
-    //             'quantity' => 'required'
-    //         ]);
-    //         $checklist->item = $request->item;
-    //         $checklist->quantity = $request->quantity;
-    //         $checklist->save();
-    //         return redirect('/checklists');
-    //     }
-    // }
+    public function update(Request $request, Checklist $checklist)
+    {
+        $this->validate($request, [
+            'item' => 'required',
+            'quantity' => 'required'
+        ]);
+        $checklist->item = $request->item;
+        $checklist->quantity = $request->quantity;
+        $checklist->save();
+        Toastr::warning($checklist->item . ' is updated successfully', 'Warning', [
+            'positionClass' => 'toast-top-right',
+            'progressBar' => 'true',
+            'closeButton' => 'true',
+        ]);
+        return redirect('/checklists');
+    }
 
     public function delete($id)
     {
