@@ -19,7 +19,6 @@
                             <span class="text-danger">{{ $errors->first('item') }}</span>
                         @endif
                     </div>
-
                     <div class="form-group py-4">
                         <label for="quantity">Item Quantity</label>
                         <input type="text" name="quantity" value="{{ $checklist->quantity }}"
@@ -28,7 +27,6 @@
                             <span class="text-danger">{{ $errors->first('quantity') }}</span>
                         @endif
                     </div>
-
                     <div class="form-group">
                         <button type="submit" name="update"
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update

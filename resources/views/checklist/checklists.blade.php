@@ -25,7 +25,6 @@
                             <th class="text-left p-3 px-5">Quantity</th>
                             <th class="text-left p-3 px-5">Created at</th>
                             <th class="text-left p-3 px-5">Actions</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
