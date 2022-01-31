@@ -38,9 +38,9 @@ Step 10: Run the following application in the command prompt // terminal in the 
 
 Step 11: Open the localhost link, http://127.0.0.1:8000 to run the following application.
 
-Step 11: Configure some stuff that required to take note on README.md in order to ensure certain features can function well. 
+Step 12: Configure some stuff that required to take note on README.md in order to ensure certain features can function well. 
 
-Step 12: Enjoy 😉
+Step 13: Enjoy 😉
 
 ## Part 2: Configuration
 
