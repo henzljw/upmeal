@@ -54,7 +54,7 @@ Step 2: Once done, run the following command to see the latest version of the ap
 
 ## Part 3: Configuration
 
-### Part 2.1: Configure profile photo
+### Part 3.1: Configure profile photo
 
 Step 1: Make sure you had installed the following application via the INSTALL.md.
 
