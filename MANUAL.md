@@ -42,7 +42,17 @@ Step 12: Configure some stuff that required to take note on README.md in order t
 
 Step 13: Enjoy 😉
 
-## Part 2: Configuration
+## Part 2: Update to the latest version
+
+Step 1: Run the following command to update the application to the latest version.
+
+    $ composer update
+
+Step 2: Once done, run the following command to see the latest version of the application.
+
+    $ php artisan --version
+
+## Part 3: Configuration
 
 ### Part 2.1: Configure profile photo
 
