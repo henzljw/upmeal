@@ -78,7 +78,7 @@ Step 2: Create an admin account.
 
 Step 3: Create a new user.
 
-Step 4: Navigate to the database and change the user type of the admin from USR to ADM.
+Step 4: Navigate to the user table which located in the following database and change the user type of the admin account from USR to ADM.
 
 Step 5: Login to the admin account and you will able to view the admin dashboard.
 
