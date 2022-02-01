@@ -56,7 +56,7 @@ Step 2: Once done, run the following command to see the latest version of the ap
 
 ### Part 3.1: Configure profile photo
 
-Step 1: Make sure you had installed the following application via the INSTALL.md.
+Step 1: Make sure you had installed the following application.
 
 Step 2: Run the following command to create a symbolic link in the application's public directory which will allow the user's profile photo to be served by the application
 
@@ -69,3 +69,17 @@ Step 3: Run the following command to optimize the application.
 Step 4: Once done, you may try to register or login the account to identify the existance of the profile photo.
 
 Step 5: Enjoy 😉
+
+### Part 3.2: Multi authentication
+
+Step 1: Make sure you had installed the following application and created database for the application.
+
+Step 2: Create an admin account.
+
+Step 3: Create a new user.
+
+Step 4: Navigate to the database and change the user type of the admin from USR to ADM.
+
+Step 5: Login to the admin account and you will able to view the admin dashboard.
+
+Step 6: Enjoy 😉
