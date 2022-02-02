@@ -7,13 +7,18 @@ The MANUAL.md will guide you about the installation and configuration of followi
 - [Part 1: Installation](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-1-installation)
 - [Part 2: Update to the latest version](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-2-update-to-the-latest-version)
 - [Part 3: Configuration](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-3-configuration)
+    - [Part 3.1: Configure Database](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-31-configure-database)
+    - [Part 3.2: Configure profile photo](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-32-configure-profile-photo)
+    - [Part 3.3: Multi authentication](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-33-multi-authentication)
 
 ## Prerequisite
 
 Tools // Applications that required to use in order to run the following application:
-- Composer
-- XAMPP // LAMPP
-- Any code editor or IDE such as Visual Studio Code
+- PHP dependency: 
+    - Composer
+- Web server:
+    - XAMPP // LAMPP
+- Any code editor or IDE that supports PHP such as Visual Studio Code and PhpStorm.
 
 ## Part 1: Installation
 
