@@ -90,7 +90,7 @@ Step 1: Make sure you had installed the following application and created a new 
 
 Step 2: Run the following command to create a symbolic link in the application's public directory which will allow the user's profile photo to be served by the application
 
-    $ php artisan storage-link
+    $ php artisan storage:link
     
 Step 3: Run the following command to optimize the application.
 
