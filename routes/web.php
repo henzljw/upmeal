@@ -30,7 +30,7 @@ Route::get('/admin/dashboard', function () {
 
 Route::get('/admin/dashboard', [DashboardController::class, 'totalUsers'])->name('admin.dashboard');
 
-// USER MANAGEMENT
+// USER LIST & USER MANAGEMENT
 Route::get('admin/users', [UserController::class, 'show'])->name('users');
 
 // USER DASHBOARD / HOME
