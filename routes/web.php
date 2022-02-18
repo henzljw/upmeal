@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
+use App\Http\Livewire\PostsList;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +67,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 });
 
 // SHOW ALL POST
-Route::get('home', [HomeController::class, 'show']);
+Route::get('lists', PostsList::class);
 
 // UNUSED CODE
 

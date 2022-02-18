@@ -11,18 +11,6 @@
     </x-slot>
 
     <div class="py-12">
-        @livewire('posts')
-        {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 items-center justify-center">
-            @foreach ($allPosts as $allPost)
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-5 py-5 my-5">
-                <h1 class="text-xl font-semibold">
-                    {{ $allPost->title }}
-                </h1>
-                <p class="text-justify">
-                    {{ $allPost->description }}
-                </p>
-            </div>
-            @endforeach
-        </div> --}}
+        @livewire('posts-list')
     </div>
 </x-app-layout>
