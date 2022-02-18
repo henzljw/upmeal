@@ -3,11 +3,11 @@
 require_once __DIR__ . '/jetstream.php';
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\ChecklistsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,8 +41,9 @@ Route::get('/home', function () {
 // USER PROFILE
 Route::view('/profile', 'profile.view')->name('profile');
 
-// CHECKLIST / SHOPPING LIST
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+
+    // CHECKLIST & SHOPPING LIST
     Route::controller(ChecklistsController::class)->group(function () {
         Route::get('/checklists', 'index')->name('checklists');
         Route::get('/checklist', 'add');
@@ -51,8 +52,21 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/checklist/{checklist}', 'update');
         Route::delete('/checklist/{checklist}', 'delete')->name('checklist.destroy');
     });
+
+    // POSTS
+    Route::controller(PostsController::class)->group(function () {
+        Route::get('/posts', 'index')->name('posts');
+        Route::get('/post', 'add');
+        Route::post('/post', 'create');
+        Route::get('/post/{post}', 'edit');
+        Route::post('/post/{post}', 'update');
+        Route::delete('/post/{post}', 'delete')->name('posts.destroy');
+    });
+
 });
 
+// SHOW ALL POST
+Route::get('home', [HomeController::class, 'show']);
 
 // UNUSED CODE
 

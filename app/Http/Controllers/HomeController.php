@@ -7,15 +7,21 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function checkUserType() {
-        if(!Auth::user()) {
+    public function checkUserType()
+    {
+        if (!Auth::user()) {
             return redirect()->route('login');
         }
         if (Auth::user()->user_type === 'ADM') {
             return redirect()->route('admin.dashboard');
         }
-        if(Auth::user()->user_type === 'USR') {
+        if (Auth::user()->user_type === 'USR') {
             return redirect()->route('home');
         }
     }
+
+    // public function show()
+    // {
+    //     return view('home'); 
+    // }
 }
