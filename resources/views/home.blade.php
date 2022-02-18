@@ -1,15 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Home') }}
-        </h2>
+        <div class="flex">
+            <h2 class="flex-auto font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Home') }}
+            </h2>
+            <div class="flex-auto text-right">
+                <a href="/post" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">New post</a>
+            </div>
+        </div>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                later will include post at here 
-            </div>
-        </div>
+        @livewire('posts-list')
     </div>
 </x-app-layout>

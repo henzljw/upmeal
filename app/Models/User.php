@@ -9,8 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-
 use App\Models\Checklist;
+use App\Models\Post;
 
 class User extends Authenticatable
 {
@@ -64,5 +64,11 @@ class User extends Authenticatable
     public function checklists()
     {
         return $this->hasMany(Checklist::class);
+    }
+
+    public function posts()
+    {
+        // 
+        return $this->hasMany(Post::class);
     }
 }
