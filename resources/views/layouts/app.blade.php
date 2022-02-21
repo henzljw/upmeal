@@ -10,6 +10,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
+        <!-- Favicon -->
+        <link rel="icon" href="{{ url('img/upmeal.png') }}">
+
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -17,7 +20,7 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
-
+        
         {{-- TOASTR MESSAGE --}}
         <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
         <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
