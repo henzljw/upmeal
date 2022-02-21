@@ -13,6 +13,13 @@ class PostsController extends Controller
         return view('profile.view', compact('posts'));
     }
 
+    public function show(Post $post)
+    {
+        return view('post.show', [
+            'post' => $post,
+        ]);
+    }
+
     public function add()
     {
         return view('post.add');

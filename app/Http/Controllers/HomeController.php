@@ -19,9 +19,4 @@ class HomeController extends Controller
             return redirect()->route('home');
         }
     }
-
-    // public function show()
-    // {
-    //     return view('home'); 
-    // }
 }

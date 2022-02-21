@@ -43,7 +43,6 @@ Route::get('/home', function () {
 Route::view('/profile', 'profile.view')->name('profile');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-
     // CHECKLIST & SHOPPING LIST
     Route::controller(ChecklistsController::class)->group(function () {
         Route::get('/checklists', 'index')->name('checklists');
@@ -53,17 +52,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/checklist/{checklist}', 'update');
         Route::delete('/checklist/{checklist}', 'delete')->name('checklist.destroy');
     });
-
     // POSTS
     Route::controller(PostsController::class)->group(function () {
         Route::get('/posts', 'index')->name('posts');
+        Route::get('/post/view/{post}', 'show');
         Route::get('/post', 'add');
         Route::post('/post', 'create');
         Route::get('/post/{post}', 'edit');
         Route::post('/post/{post}', 'update');
         Route::delete('/post/{post}', 'delete')->name('posts.destroy');
     });
-
 });
 
 // SHOW ALL POST
