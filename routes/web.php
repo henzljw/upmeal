@@ -5,10 +5,10 @@ require_once __DIR__ . '/jetstream.php';
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChecklistsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
 use App\Http\Livewire\PostsList;
+use App\Http\Livewire\UsersList;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/dashboard', [DashboardController::class, 'totalUsers'])->name('admin.dashboard');
 
 // USER LIST & USER MANAGEMENT
-Route::get('admin/users', [UserController::class, 'show'])->name('users');
+Route::get('admin/users', UsersList::class)->name('users');
 
 // USER DASHBOARD / HOME
 Route::get('/home', function () {
@@ -56,8 +56,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::controller(PostsController::class)->group(function () {
         Route::get('/posts', 'index')->name('posts');
         Route::get('/post/view/{post}', 'show');
-        Route::get('/post', 'add');
-        Route::post('/post', 'create');
+        Route::get('/post', 'create');
+        Route::post('/post', 'store');
         Route::get('/post/{post}', 'edit');
         Route::post('/post/{post}', 'update');
         Route::delete('/post/{post}', 'delete')->name('posts.destroy');

@@ -11,7 +11,7 @@
                     {{ $post->name }}
                 </span>
             </div> --}}
-            <a class="text-xl font-semibold" href="./post/view/{{ $post->id }}">
+            <a class="text-xl font-semibold" href="./post/view/{{ $post->slug }}">
                 {{ $post->title }}
             </a>
             <p class="text-justify mt-5">
