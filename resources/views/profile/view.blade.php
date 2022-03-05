@@ -50,6 +50,9 @@
                     <p class="text-justify">
                         {{ $post->description }}
                     </p>
+                    <div class="pt-5">
+                        <img src="{{ Storage::url($post->image) }}" alt="" height="400" width="570" alt="" />
+                    </div>
                     <p class="mt-5">
                         {{ $post->created_at->format('M d, Y, H:i') }}
                     </p>

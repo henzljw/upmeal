@@ -38,9 +38,13 @@ class PostsController extends Controller
      */
     public function store(PostFormRequest $request)
     {
+        // Image upload
+        $path = $request->file('image')->store('public/img/posts');
+
         $post = new Post();
         $post->title = $request->title;
         $post->description = $request->description;
+        $post->image = $path;
         $post->slug = Str::slug($post->title);
 
         // If found duplicate title
@@ -94,12 +98,20 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $this->validate($request, [
+        $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
+        
         $post->title = $request->title;
         $post->description = $request->description;
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('public/img/posts');
+            $post->image = $path;
+        }
+
         $post->save();
 
         return redirect('/posts');

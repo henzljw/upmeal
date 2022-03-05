@@ -16,6 +16,7 @@ class PostFormRequest extends FormRequest
         return [
             'title' => 'required|unique:posts',
             'description' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
         ];
     }
 }
