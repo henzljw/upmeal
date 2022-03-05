@@ -17,7 +17,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = auth()->user()->posts();
-        return view('profile.view', compact('posts'));
+        return view('livewire.users-profile', compact('posts'));
     }
 
     /**

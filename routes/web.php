@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
 use App\Http\Livewire\PostsList;
 use App\Http\Livewire\UsersList;
+use App\Http\Livewire\UsersProfile;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,13 +35,16 @@ Route::get('/admin/dashboard', [DashboardController::class, 'totalUsers'])->name
 // USER LIST & USER MANAGEMENT
 Route::get('admin/users', UsersList::class)->name('users');
 
+// USER PROFILE
+Route::get('profile', UsersProfile::class)->name('profile');
+
 // USER DASHBOARD / HOME
 Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-// USER PROFILE
-Route::view('/profile', 'profile.view')->name('profile');
+// SHOW ALL POST
+Route::get('lists', PostsList::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // CHECKLIST & SHOPPING LIST
@@ -63,9 +67,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::delete('/post/{post}', 'delete')->name('posts.destroy');
     });
 });
-
-// SHOW ALL POST
-Route::get('lists', PostsList::class);
 
 // UNUSED CODE
 
