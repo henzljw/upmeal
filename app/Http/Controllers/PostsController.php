@@ -17,7 +17,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = auth()->user()->posts();
-        return view('livewire.users-profile', compact('posts'));
+        return view('home', compact('posts'));
     }
 
     /**
@@ -101,7 +101,7 @@ class PostsController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'image|mimes:png,jpg,jpeg|max:2048',
         ]);
         
         $post->title = $request->title;
