@@ -56,7 +56,7 @@
                     <div class="flex mt-5">
                         <div class="mr-2">
                             <a type="button" href="post/{{ $posts->id }}"
-                                class="h-10 w-20 inline-block px-6 py-3 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                                class="h-10 w-15 inline-block px-4 py-3 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                                 Edit
                             </a>
                         </div>
@@ -64,7 +64,7 @@
                             @method('DELETE')
                             <button type="submit" name="delete" formmethod="POST"
                                 onclick="return confirm('Are you sure to delete the selected items?')"
-                                class="h-10 w-30 inline-block px-6 py-3 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Delete</button>
+                                class="h-10 w-20 inline-block px-4 py-3 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Delete</button>
                             {{ csrf_field() }}
                         </form>
                     </div>
