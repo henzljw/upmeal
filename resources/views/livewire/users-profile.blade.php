@@ -36,44 +36,40 @@
             </div>
         </div>
     </div>
-    <div class="max-w-2xl mx-auto sm:px-6 lg:px-8 items-center justify-center py-10">
-        @foreach (auth()->user()->posts as $post)
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-5 py-5 mb-5">
-                {{-- <div class="flex pb-5">
-                        <img class="h-10 w-10 rounded-full object-cover flex"
-                            src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                        <span class="pt-2 ml-3">
-                            {{ Auth::user()->name }}
-                        </span>
-                    </div> --}}
-                <a class="text-xl font-semibold" href="./post/view/{{ $post->slug }}">
-                    {{ $post->title }}
-                </a>
-                <p class="text-justify">
-                    {{ $post->description }}
-                </p>
-                <div class="pt-5">
-                    <img src="{{ Storage::url($post->image) }}" alt="" height="400" width="570" alt="" />
-                </div>
-                <p class="mt-5">
-                    {{ $post->created_at->format('M d, Y, H:i') }}
-                </p>
-                <div class="flex mt-5">
-                    <div class="mr-2">
-                        <a type="button" href="post/{{ $post->id }}"
-                            class="h-10 w-52 inline-block px-6 py-3 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-                            Edit
-                        </a>
+    <div class="w-30 mx-40 my-10">
+        <h1 class="text-xl mb-5">My recipes</h1>
+        <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
+            @foreach (auth()->user()->posts as $posts)
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-5 py-5 mb-5">
+                    <a class="text-xl font-semibold" href="./post/view/{{ $posts->slug }}">
+                        {{ $posts->title }}
+                    </a>
+                    <p class="truncate text-justify">
+                        {{ $posts->description }}
+                    </p>
+                    <div class="pt-5">
+                        <img src="{{ Storage::url($posts->image) }}" alt="" height="400" width="570" alt="" />
                     </div>
-                    <form action="{{ route('posts.destroy', $post->id) }}" class="inline-block">
-                        @method('DELETE')
-                        <button type="submit" name="delete" formmethod="POST"
-                            onclick="return confirm('Are you sure to delete the selected items?')"
-                            class="h-10 w-52 inline-block px-6 py-3 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Delete</button>
-                        {{ csrf_field() }}
-                    </form>
+                    <p class="mt-5">
+                        {{ $posts->created_at->format('M d, Y, H:i') }}
+                    </p>
+                    <div class="flex mt-5">
+                        <div class="mr-2">
+                            <a type="button" href="post/{{ $posts->id }}"
+                                class="h-10 w-20 inline-block px-6 py-3 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                                Edit
+                            </a>
+                        </div>
+                        <form action="{{ route('posts.destroy', $posts->id) }}" class="inline-block">
+                            @method('DELETE')
+                            <button type="submit" name="delete" formmethod="POST"
+                                onclick="return confirm('Are you sure to delete the selected items?')"
+                                class="h-10 w-30 inline-block px-6 py-3 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Delete</button>
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 </div>
