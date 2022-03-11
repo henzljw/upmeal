@@ -10,6 +10,7 @@ The MANUAL.md will guide you about the installation and configuration of followi
     - [Part 3.1: Configure Database](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-31-configure-database)
     - [Part 3.2: Configure profile photo](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-32-configure-profile-photo)
     - [Part 3.3: Multi authentication](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-33-multi-authentication)
+- [Part 4: Laravel Mix](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-4-laravel-mix)
 
 ## Prerequisite
 
@@ -113,3 +114,13 @@ Step 4: Navigate to the user table which located in the following database and c
 Step 5: Login to the admin account and you will able to view the admin dashboard.
 
 Step 6: Enjoy 😉
+
+## Part 4: Laravel Mix
+
+If you have encountered an issues when running Laravel Mix such as
+- 'mix' is not recognized as an internal or external command, operable program or batch file.
+
+It's very important to make sure that the Laravel Mix is installed in the latest build in the following web app.
+
+    $ npm install laravel-mix@latest --save-dev
+
