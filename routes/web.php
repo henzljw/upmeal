@@ -7,6 +7,7 @@ use App\Http\Controllers\ChecklistsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\CuisineController;
 use App\Http\Livewire\PostsList;
 use App\Http\Livewire\UsersList;
 use App\Http\Livewire\UsersProfile;
@@ -65,6 +66,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/post/{post}', 'edit');
         Route::post('/post/{post}', 'update');
         Route::delete('/post/{post}', 'delete')->name('posts.destroy');
+    });
+    // CUISINES
+    Route::controller(CuisineController::class)->group(function () {
+        Route::get('/admin/cuisines', 'index')->name('cuisines');
+        Route::get('/cuisine', 'create');
+        Route::post('/cuisine', 'store');
+        Route::get('/cuisine/{cuisine}', 'edit');
+        Route::put('/cuisine/{cuisine}', 'update');
+        Route::get('/delete-cuisine/{cuisine}', 'destroy');
     });
 });
 

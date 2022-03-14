@@ -39,7 +39,7 @@
                     <div class="form-group py-4">
                         New image:
                         <img id="preview-image" src="https://cdn-icons-png.flaticon.com/512/126/126477.png"
-                            alt="image preview" class="object-scale-down h-50">
+                            alt="image preview" width="150" height="150">
                     </div>
                     <div class="form-group py-4">
                         Current image:

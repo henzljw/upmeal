@@ -25,7 +25,9 @@
                 </div>
             </div>
             <div class="flex-auto text-right">
-                <a href="/post" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">New post</a>
+                <a href="/post" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Create post
+                </a>
             </div>
         </div>
     </x-slot>
