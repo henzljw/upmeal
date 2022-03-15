@@ -1436,6 +1436,10 @@ input[type=file]::file-selector-button:hover{
   margin-bottom: 1.25rem;
 }
 
+.mr-10{
+  margin-right: 2.5rem;
+}
+
 .block{
   display: block;
 }

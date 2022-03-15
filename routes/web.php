@@ -11,6 +11,7 @@ use App\Http\Controllers\CuisineController;
 use App\Http\Livewire\PostsList;
 use App\Http\Livewire\UsersList;
 use App\Http\Livewire\UsersProfile;
+use App\Http\Livewire\RecentPosts;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +45,11 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-// SHOW ALL POST
+// SHOW ALL RECIPES
 Route::get('lists', PostsList::class);
+
+// SHOW RECENT RECIPES
+Route::get('recent', RecentPosts::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // CHECKLIST & SHOPPING LIST
@@ -57,7 +61,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/checklist/{checklist}', 'update');
         Route::delete('/checklist/{checklist}', 'delete')->name('checklist.destroy');
     });
-    // POSTS
+    // RECIPES
     Route::controller(PostsController::class)->group(function () {
         Route::get('/posts', 'index')->name('posts');
         Route::get('/post/view/{post}', 'show');

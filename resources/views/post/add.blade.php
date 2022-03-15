@@ -1,10 +1,10 @@
-{{-- Upload post --}}
+{{-- Create new recipe --}}
 {{-- add.blade.php --}}
 
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create post') }}
+            {{ __('Create recipe') }}
         </h2>
     </x-slot>
     <div class="py-12">
@@ -14,8 +14,7 @@
                     <div class="form-group">
                         <label for="title" class="font-semibold">Title</label>
                         <input type="text" name="title"
-                            class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-10 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
-                            placeholder='Recipe title' />
+                            class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-10 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"/>
                         <small class="font-medium">Make sure your title is unique.</small>
                         @if ($errors->has('title'))
                             <div class="flex p-2 mb-4 mt-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
@@ -35,8 +34,7 @@
                     <div class="form-group pt-4">
                         <label for="description" class="font-semibold">Description</label>
                         <input type="text" name="description"
-                            class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-10 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
-                            placeholder='Recipe description' />
+                            class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-10 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"/>
                         <small class="font-medium">A brief description of the food is needed.</small>
                         @if ($errors->has('description'))
                             <div class="flex p-2 mb-4 mt-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
@@ -81,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <button type="submit"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add</button>
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create</button>
                     </div>
                     {{ csrf_field() }}
                 </form>
