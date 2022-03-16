@@ -1,8 +1,20 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Cuisines') }}
-        </h2>
+        <div class="flex">
+            <div class="flex-auto">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('Cuisines') }}
+                </h2>
+            </div>
+            <div class="flex-auto text-right">
+                <a href="/cuisine" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    <span>
+                        <i class="bi bi-plus-lg"></i>
+                    </span>
+                    Create cuisine
+                </a>
+            </div>
+        </div>
     </x-slot>
 
     <div class="py-12">
@@ -22,7 +34,7 @@
                         </div>
                     </div>
                 @endif
-                <div class="flex">
+                {{-- <div class="flex">
                     <div class="flex-auto text-2xl mb-4"></div>
 
                     <div class="flex-auto text-right my-5">
@@ -33,7 +45,7 @@
                             Create cuisines
                         </a>
                     </div>
-                </div>
+                </div> --}}
                 <table class="w-full text-md rounded mb-4">
                     <thead>
                         <tr class="border-b">

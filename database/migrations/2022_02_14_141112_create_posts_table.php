@@ -15,8 +15,13 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->integer('cuisine_id');
             $table->string('title');
             $table->string('description');
+            $table->integer('ct_hrs');
+            $table->integer('ct_min');
+            $table->string('ingredients');
+            $table->string('steps');
             $table->string('image')->nullable();
             $table->string('slug')->unique();
             $table->integer('user_id')->unsigned()->index();

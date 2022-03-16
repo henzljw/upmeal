@@ -48,7 +48,7 @@
     <div class="w-30 mx-40 my-10">
         <div class="flex">
             <div>
-                <h1 class="text-xl font-semibold mb-5">Recent recipes</h1>
+                <h1 class="flex-auto text-xl font-semibold mb-5">Recent recipes</h1>
             </div>
             <div class="flex-auto text-right">
                 <a href="{{ url('/recent') }}">Show more</a>

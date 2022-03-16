@@ -44,12 +44,12 @@
                     <a class="text-xl font-semibold" href="./post/view/{{ $posts->slug }}">
                         {{ $posts->title }}
                     </a>
-                    <p class="truncate text-justify">
-                        {{ $posts->description }}
-                    </p>
                     <div class="pt-5">
                         <img src="{{ Storage::url($posts->image) }}" alt="" height="400" width="570" alt="" />
                     </div>
+                    <p class="truncate text-justify pt-5">
+                        {{ $posts->description }}
+                    </p>
                     <p class="mt-5">
                         {{ $posts->created_at->format('M d, Y, H:i') }}
                     </p>

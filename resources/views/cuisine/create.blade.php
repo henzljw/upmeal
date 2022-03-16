@@ -4,7 +4,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Add new cuisine') }}
+            {{ __('Create new cuisine') }}
         </h2>
     </x-slot>
     <div class="py-12">
@@ -69,7 +69,7 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add</button>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create</button>
                     </div>
                     {{ csrf_field() }}
                 </form>

@@ -47,6 +47,7 @@
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('cuisines') }}" :active="request()->routeIs('cuisines')">
+                            <img src="{{ asset('img/icons/food.png') }}" class="mr-2" alt="" width="20" height="20">
                             {{ __('Cuisines') }}
                         </x-jet-nav-link>
                     </div>
