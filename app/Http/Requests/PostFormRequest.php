@@ -16,6 +16,11 @@ class PostFormRequest extends FormRequest
         return [
             'title' => 'required|unique:posts',
             'description' => 'required',
+            'cuisine_id' => 'required|integer',
+            'ingredients' => 'required',
+            'steps' => 'required',
+            'ct_hrs' => 'required',
+            'ct_min' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
         ];
     }
