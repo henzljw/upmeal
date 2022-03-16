@@ -11,11 +11,11 @@
             <h2 class="flex-auto font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Profile') }}
             </h2>
-            <div class="flex-auto text-right">
+            {{-- <div class="flex-auto text-right">
                 <a href="/post" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    New post
+                    Create recipe
                 </a>
-            </div>
+            </div> --}}
         </div>
     @endif
 </x-slot>
@@ -44,19 +44,19 @@
                     <a class="text-xl font-semibold" href="./post/view/{{ $posts->slug }}">
                         {{ $posts->title }}
                     </a>
-                    <p class="truncate text-justify">
-                        {{ $posts->description }}
-                    </p>
                     <div class="pt-5">
                         <img src="{{ Storage::url($posts->image) }}" alt="" height="400" width="570" alt="" />
                     </div>
+                    <p class="truncate text-justify pt-5">
+                        {{ $posts->description }}
+                    </p>
                     <p class="mt-5">
                         {{ $posts->created_at->format('M d, Y, H:i') }}
                     </p>
                     <div class="flex mt-5">
                         <div class="mr-2">
                             <a type="button" href="post/{{ $posts->id }}"
-                                class="h-10 w-15 inline-block px-4 py-3 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                                class="text-sm bg-blue-500 hover:bg-blue-700 text-white py-2 px-3 rounded focus:outline-none focus:shadow-outline">
                                 Edit
                             </a>
                         </div>
@@ -64,7 +64,7 @@
                             @method('DELETE')
                             <button type="submit" name="delete" formmethod="POST"
                                 onclick="return confirm('Are you sure to delete the selected items?')"
-                                class="h-10 w-20 inline-block px-4 py-3 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Delete</button>
+                                class="text-sm bg-red-500 hover:bg-red-700 text-white py-2 px-3 rounded focus:outline-none focus:shadow-outline">Delete</button>
                             {{ csrf_field() }}
                         </form>
                     </div>

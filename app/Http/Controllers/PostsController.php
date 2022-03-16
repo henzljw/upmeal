@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Post;
+use App\Models\Cuisine;
 use App\Http\Requests\PostFormRequest;
 
 class PostsController extends Controller
@@ -27,7 +28,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('post.add');
+        $cuisine = Cuisine::all();
+        return view('post.add', compact('cuisine'));
     }
 
     /**
@@ -44,6 +46,11 @@ class PostsController extends Controller
         $post = new Post();
         $post->title = $request->title;
         $post->description = $request->description;
+        $post->cuisine_id = $request->cuisine_id;
+        $post->ingredients = $request->ingredients;
+        $post->steps = $request->steps;
+        $post->ct_hrs = $request->ct_hrs;
+        $post->ct_min = $request->ct_min;
         $post->image = $path;
         $post->slug = Str::slug($post->title);
 
@@ -82,10 +89,11 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
+        $cuisine = Cuisine::all();
         if (auth()->user()->id == $post->user_id) {
-            return view('post.edit', compact('post'));
+            return view('post.edit', compact('post', 'cuisine'));
         } else {
-            return redirect('/posts');
+            return view('profile');
         }
     }
 
@@ -101,11 +109,21 @@ class PostsController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'cuisine_id' => 'required|integer',
+            'ingredients' => 'required',
+            'steps' => 'required',
+            'ct_hrs' => 'required',
+            'ct_min' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:2048',
         ]);
         
         $post->title = $request->title;
         $post->description = $request->description;
+        $post->cuisine_id = $request->cuisine_id;
+        $post->ingredients = $request->ingredients;
+        $post->steps = $request->steps;
+        $post->ct_hrs = $request->ct_hrs;
+        $post->ct_min = $request->ct_min;
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('public/img/posts');
