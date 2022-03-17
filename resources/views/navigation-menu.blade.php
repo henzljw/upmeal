@@ -62,16 +62,6 @@
                             {{ __('Home') }}
                         </x-jet-nav-link>
                     </div>
-                    {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
-                        <x-jet-nav-link href="{{ route('posts') }}" :active="request()->routeIs('posts')">
-                            {{ __('Posts') }}
-                        </x-jet-nav-link>
-                    </div> --}}
-                    {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
-                        <x-jet-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')">
-                            {{ __('Search') }}
-                        </x-jet-nav-link>
-                    </div> --}}
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
                         <x-jet-nav-link href="{{ route('checklists') }}" :active="request()->routeIs('checklists')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -84,11 +74,6 @@
                             {{ __('Lists') }}
                         </x-jet-nav-link>
                     </div>
-                    {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
-                        <x-jet-nav-link href="{{ route('chatbot') }}" :active="request()->routeIs('chatbot')">
-                            {{ __('Chatbot') }}
-                        </x-jet-nav-link>
-                    </div> --}}
                 @endif
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
                     <x-jet-nav-link href="{{ route('profile') }}" :active="request()->routeIs('profile')">

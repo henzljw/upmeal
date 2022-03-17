@@ -51,6 +51,9 @@ Route::get('lists', PostsList::class);
 // SHOW RECENT RECIPES
 Route::get('recent', RecentPosts::class);
 
+// SHOW ALL RECIPES IN CUISINE TYPE
+// SEARCH RECIPES
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // CHECKLIST & SHOPPING LIST
     Route::controller(ChecklistsController::class)->group(function () {
