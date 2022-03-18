@@ -1424,16 +1424,16 @@ input[type=file]::file-selector-button:hover{
   margin-bottom: 1rem;
 }
 
+.mb-5{
+  margin-bottom: 1.25rem;
+}
+
 .-mt-px{
   margin-top: -1px;
 }
 
 .mb-10{
   margin-bottom: 2.5rem;
-}
-
-.mb-5{
-  margin-bottom: 1.25rem;
 }
 
 .mr-10{
