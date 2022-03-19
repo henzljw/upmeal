@@ -88,6 +88,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         // SHOW ALL CUISINE TYPE
         Route::get('library', 'index')->name('library');
         // SHOW CUISINE RESULTS
+        Route::get('library/{cuisine_slug}', 'showResults');
+        // SHOW A SINGLE RECIPE IN CUISINE
         Route::get('library/{cuisine_slug}/{post_slug}', 'show');
     });
 });

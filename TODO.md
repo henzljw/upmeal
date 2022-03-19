@@ -7,5 +7,4 @@ List up the features to be implement in the upmeal
 - Search recipe
 
 Issue to fix:
-- Fix a single recipe (post) in the library
 - Include user in each recipe (post)
