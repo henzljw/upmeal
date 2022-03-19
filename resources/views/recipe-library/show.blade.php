@@ -51,6 +51,13 @@
                                 href="/post/view/{{ $post->slug }}">
                                 Learn more
                             </a>
+                            <div class="flex">
+                                <img class="flex h-10 w-10 mr-2 rounded-full object-cover"
+                                    src="{{ $post->user->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                <div class="flex mt-2">
+                                    {{ $post->user->name }}
+                                </div>
+                            </div>
                         </div>
                     @empty
                         <h1 class="text-center">No post available yet for {{ $cuisines->name }} cuisines</h1>

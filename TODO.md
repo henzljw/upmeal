@@ -7,4 +7,3 @@ List up the features to be implement in the upmeal
 - Search recipe
 
 Issue to fix:
-- Include user in each recipe (post)
