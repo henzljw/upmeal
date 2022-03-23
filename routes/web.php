@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CuisineController;
+use App\Http\Controllers\RecipeLibraryController;
 use App\Http\Livewire\PostsList;
 use App\Http\Livewire\UsersList;
 use App\Http\Livewire\UsersProfile;
@@ -51,6 +52,11 @@ Route::get('lists', PostsList::class);
 // SHOW RECENT RECIPES
 Route::get('recent', RecentPosts::class);
 
+// SEARCH RECIPES
+Route::get('/search', function () {
+    return view('search.search');
+})->name('search');
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // CHECKLIST & SHOPPING LIST
     Route::controller(ChecklistsController::class)->group(function () {
@@ -79,6 +85,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/cuisine/{cuisine}', 'edit');
         Route::put('/cuisine/{cuisine}', 'update');
         Route::get('/delete-cuisine/{cuisine}', 'destroy');
+    });
+    // RECIPE LIBRARY
+    Route::controller(RecipeLibraryController::class)->group(function () {
+        // SHOW ALL CUISINE TYPE
+        Route::get('library', 'index')->name('library');
+        // SHOW CUISINE RESULTS
+        Route::get('library/{cuisine_slug}', 'showResults');
+        // SHOW A SINGLE RECIPE IN CUISINE
+        Route::get('library/{cuisine_slug}/{post_slug}', 'show');
     });
 });
 
