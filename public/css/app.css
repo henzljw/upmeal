@@ -1332,6 +1332,11 @@ input[type=file]::file-selector-button:hover{
   margin-right: 0.5rem;
 }
 
+.my-20{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .ml-3{
   margin-left: 0.75rem;
 }

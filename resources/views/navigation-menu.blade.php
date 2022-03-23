@@ -64,6 +64,16 @@
                         </x-jet-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
+                        <x-jet-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-search mr-2" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                            {{ __('Search') }}
+                        </x-jet-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
                         <x-jet-nav-link href="{{ route('library') }}" :active="request()->routeIs('library')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-collection-fill mr-2" viewBox="0 0 16 16">
@@ -219,11 +229,26 @@
                                         </div>
                                     </div>
                                 </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('search') }}">
+                                    <div class="flex">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-search mr-2" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            {{ __('Search') }}
+                                        </div>
+                                    </div>
+                                </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="{{ route('library') }}">
                                     <div class="flex">
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-collection-fill mr-2" viewBox="0 0 16 16">
+                                                fill="currentColor" class="bi bi-collection-fill mr-2"
+                                                viewBox="0 0 16 16">
                                                 <path
                                                     d="M0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z" />
                                             </svg>
@@ -326,6 +351,9 @@
                 @elseif (Auth::user()->user_type === 'USR')
                     <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Home') }}
+                    </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')">
+                        {{ __('Search') }}
                     </x-jet-responsive-nav-link>
                     <x-jet-responsive-nav-link href="{{ route('library') }}" :active="request()->routeIs('library')">
                         {{ __('Library') }}

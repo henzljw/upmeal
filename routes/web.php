@@ -53,6 +53,9 @@ Route::get('lists', PostsList::class);
 Route::get('recent', RecentPosts::class);
 
 // SEARCH RECIPES
+Route::get('/search', function () {
+    return view('search.search');
+})->name('search');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // CHECKLIST & SHOPPING LIST
