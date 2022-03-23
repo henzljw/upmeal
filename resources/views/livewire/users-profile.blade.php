@@ -2,22 +2,9 @@
 {{-- users-profile.blade.php --}}
 
 <x-slot name="header">
-    @if (Auth::user()->user_type === 'ADM')
-        <h2 class="flex-auto font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    @elseif (Auth::user()->user_type === 'USR')
-        <div class="flex">
-            <h2 class="flex-auto font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Profile') }}
-            </h2>
-            {{-- <div class="flex-auto text-right">
-                <a href="/post" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Create recipe
-                </a>
-            </div> --}}
-        </div>
-    @endif
+    <h2 class="flex-auto font-semibold text-xl text-gray-800 leading-tight">
+        {{ __('Profile') }}
+    </h2>
 </x-slot>
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -37,9 +24,9 @@
         </div>
     </div>
     <div class="w-30 mx-40 my-10">
-        <h1 class="text-xl mb-5">My recipes</h1>
+        <h1 class="text-xl font-semibold mb-10">{{ Auth::user()->name }}'s recipes</h1>
         <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
-            @foreach (auth()->user()->posts as $posts)
+            @forelse (auth()->user()->posts as $posts)
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-5 py-5 mb-5">
                     <a class="text-xl font-semibold" href="./post/view/{{ $posts->slug }}">
                         {{ $posts->title }}
@@ -68,8 +55,17 @@
                             {{ csrf_field() }}
                         </form>
                     </div>
+                    <div class="flex mt-5">
+                        <img class="flex h-10 w-10 mr-2 rounded-full object-cover"
+                            src="{{ $posts->user->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                        <div class="flex mt-2">
+                            {{ $posts->user->name }}
+                        </div>
+                    </div>
                 </div>
-            @endforeach
+            @empty
+                <h1 class="text-center">There is no recipes yet</h1>
+            @endforelse
         </div>
     </div>
 </div>

@@ -10,7 +10,7 @@ class PostsList extends Component
     public $posts;
     public function render()
     {
-        $this->posts = Post::OrderBy('created_at', 'desc')->get();
+        $this->posts = Post::OrderBy('created_at', 'desc')->take(5)->get();
         return view('livewire.posts-list');
     }
 }
