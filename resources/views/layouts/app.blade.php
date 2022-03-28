@@ -60,7 +60,7 @@
 
     {{-- CHATBOT --}}
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger intent="WELCOME" chat-title="meal-bot" agent-id="3621f6ff-b71f-42f2-806b-a2c093bc7ffc"
+    <df-messenger intent="WELCOME" chat-title="MealBot" agent-id="51c34d55-72cb-47b4-b7bd-486748b09103"
         language-code="en"></df-messenger>
 </body>
 
