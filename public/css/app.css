@@ -1429,16 +1429,16 @@ input[type=file]::file-selector-button:hover{
   margin-bottom: 1rem;
 }
 
-.mb-5{
-  margin-bottom: 1.25rem;
-}
-
 .-mt-px{
   margin-top: -1px;
 }
 
 .mb-10{
   margin-bottom: 2.5rem;
+}
+
+.mb-5{
+  margin-bottom: 1.25rem;
 }
 
 .mr-10{
@@ -1983,6 +1983,11 @@ input[type=file]::file-selector-button:hover{
 .bg-green-100{
   --tw-bg-opacity: 1;
   background-color: rgb(222 247 236 / var(--tw-bg-opacity));
+}
+
+.bg-amber-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 158 11 / var(--tw-bg-opacity));
 }
 
 .bg-green-200{
@@ -2574,6 +2579,11 @@ input[type=file]::file-selector-button:hover{
 .hover\:bg-orange-100:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(254 236 220 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-amber-700:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(180 83 9 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-black:hover{
