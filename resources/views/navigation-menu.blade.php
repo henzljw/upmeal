@@ -202,34 +202,6 @@
                             {{-- <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
                             </div> --}}
-
-                            @if (Auth::user()->user_type === 'ADM')
-                                <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
-                                    {{ __('Dashboard') }}
-                                </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ route('users') }}">
-                                    {{ __('Users') }}
-                                </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ route('cuisines') }}">
-                                    {{ __('Cuisines') }}
-                                </x-jet-dropdown-link>
-                            @elseif (Auth::user()->user_type === 'USR')
-                                <x-jet-dropdown-link href="{{ route('home') }}">
-                                    {{ __('Home') }}
-                                </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ route('search') }}">
-                                    {{ __('Search') }}
-                                </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ route('library') }}">
-                                    {{ __('Library') }}
-                                </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ route('checklists') }}">
-                                    {{ __('Lists') }}
-                                </x-jet-dropdown-link>
-                            @endif
-                            <x-jet-dropdown-link href="{{ route('profile') }}">
-                                {{ __('Profile') }}
-                            </x-jet-dropdown-link>
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}
