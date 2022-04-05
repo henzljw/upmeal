@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CuisineController;
 use App\Http\Controllers\RecipeLibraryController;
+use App\Http\Controllers\WishlistController;
 use App\Http\Livewire\PostsList;
 use App\Http\Livewire\UsersList;
 use App\Http\Livewire\UsersProfile;
@@ -56,6 +57,9 @@ Route::get('recent', RecentPosts::class);
 Route::get('/search', function () {
     return view('search.search');
 })->name('search');
+
+// SAVE MEALS
+Route::resource('wishlist', WishlistController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // CHECKLIST & SHOPPING LIST
