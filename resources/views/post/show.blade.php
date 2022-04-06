@@ -9,6 +9,23 @@
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if (count($errors) > 0)
+                @foreach ($errors->all() as $error)
+                    <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3" role="alert">
+                        <p>{{ $error }}</p>
+                    </div>
+                @endforeach
+            @endif
+            @if ($message = Session::get('error'))
+                <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3" role="alert">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
+            @if ($message = Session::get('success'))
+                <div class="bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 mb-3" role="alert">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-5 py-5 mb-5">
                 <div class="flex">
                     <div>
@@ -18,6 +35,13 @@
                     </div>
                     <div class="flex-auto text-right">
                         {{ $post->created_at->format('M d, Y, H:i') }}
+                    </div>
+                </div>
+                <div class="flex mt-2">
+                    <img class="flex h-10 w-10 mr-2 rounded-full object-cover"
+                        src="{{ $post->user->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                    <div class="flex mt-2">
+                        {{ $post->user->name }}
                     </div>
                 </div>
                 <p class="text-justify my-5">
@@ -62,20 +86,36 @@
                         {{ $post->steps }}
                     </p>
                 </div>
-                {{-- <div class="flex mt-5">
-                <div class="flex-auto">
-                    <button type="button"
-                        class="h-10 w-64 inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-                        Like
+
+                <a href="{{ route('showWishlist', $post->id) }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-bookmark" viewBox="0 0 16 16">
+                        <path
+                            d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                    </svg>
+                </a>
+
+                {{-- <form action="{{ route('wishlist.store') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="post_id" value={{ $post->id }}>
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">
+                        @if (isset($postWishlist) && $postWishlist)
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-bookmark-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z" />
+                            </svg>
+                            Save meal
+                        @else
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-bookmark" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                            </svg>
+                            Save meal
+                        @endif
                     </button>
-                </div>
-                <div class="flex-auto">
-                    <button type="button"
-                        class="h-10 w-64 inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-                        Save
-                    </button>
-                </div>
-            </div> --}}
+                </form> --}}
             </div>
         </div>
     </div>

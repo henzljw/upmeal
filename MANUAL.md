@@ -5,11 +5,14 @@ The MANUAL.md will guide you about the installation and configuration of followi
 ## Table of contents
 - [Prerequisite](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#prerequisite)
 - [Part 1: Installation](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-1-installation)
+    - [Part 1.1: Windows](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-11-windows)
+    - [Part 1.2: Linux](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-12-linux)
 - [Part 2: Update to the latest version](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-2-update-to-the-latest-version)
 - [Part 3: Configuration](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-3-configuration)
     - [Part 3.1: Configure Database](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-31-configure-database)
     - [Part 3.2: Configure profile photo](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-32-configure-profile-photo)
     - [Part 3.3: Multi authentication](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-33-multi-authentication)
+- [Part 4: Laravel Mix](https://github.com/henZ1010/upmeal/blob/main/MANUAL.md#part-4-laravel-mix)
 
 ## Prerequisite
 
@@ -22,9 +25,11 @@ Tools // Applications that required to use in order to run the following applica
 
 ## Part 1: Installation
 
+### Part 1.1: Windows
+
 Step 1: Clone the following repository in the command prompt // terminal into your machine.
 
-    $ git clone https://github.com/henZ1010/upmeal-app.git
+    $ git clone https://github.com/henZ1010/upmeal.git
     
 Step 2: Navigate to your cloned repository folder.
 
@@ -55,6 +60,50 @@ Step 10: Run the following application in the command prompt // terminal in the 
     $ php artisan serve
 
 Step 11: Open the localhost link, http://127.0.0.1:8000 to run the following application.
+
+Step 12: Configure some stuff that required to take note on README.md in order to ensure certain features can function well. 
+
+Step 13: Enjoy 😉
+
+### Part 1.2: Linux
+
+This steps has been tested in Debian based Linux distro such as Ubuntu and Linux Mint.
+
+Step 1: Clone the following repository in the command prompt // terminal into your machine.
+
+    $ git clone https://github.com/henZ1010/upmeal.git
+
+Step 2: Navigate to your cloned repository folder.
+
+    $ cd upmeal-app
+
+Step 3: Install Composer in the cloned repository folder.
+
+    $ composer install
+    
+Step 4: Type the command in the terminal to copy .eenv.example file to .env file.
+
+    $ cp .env.example .env
+
+Step 5: Open your IDE // Code editor to load the app and delete the .env.example file.
+
+Step 6: Generate a new application key in the terminal in the cloned repository folder.
+
+    $ php artisan key:generate --show
+
+Step 7: Copy the application key and paste it in the .env file
+
+Step 8: Create a new database called upmeal in the phpmyadmin.
+
+Step 9: Migrate the database by executing the command that shown as below in the terminal.
+
+    $ php artisan migrate
+
+Step 10: Run the following application in the terminal in the cloned repository folder.
+
+    $ php artisan serve
+
+Step 11: Open the localhost link, http://127.0.0.1:8000 // http://localhost:8000 to run the following application.
 
 Step 12: Configure some stuff that required to take note on README.md in order to ensure certain features can function well. 
 
@@ -113,3 +162,13 @@ Step 4: Navigate to the user table which located in the following database and c
 Step 5: Login to the admin account and you will able to view the admin dashboard.
 
 Step 6: Enjoy 😉
+
+## Part 4: Laravel Mix
+
+If you have encountered an issues when running Laravel Mix such as
+- 'mix' is not recognized as an internal or external command, operable program or batch file.
+
+It's very important to make sure that the Laravel Mix is installed in the latest build in the following web app.
+
+    $ npm install laravel-mix@latest --save-dev
+
