@@ -95,7 +95,7 @@
                         </x-jet-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
-                        <x-jet-nav-link href="{{ route('wishlist.index') }}" :active="request()->routeIs('wishlist.index')">
+                        <x-jet-nav-link href="{{ route('wishlist') }}" :active="request()->routeIs('wishlist')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-bookmark-fill mr-2" viewBox="0 0 16 16">
                                 <path

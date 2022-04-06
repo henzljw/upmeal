@@ -11,16 +11,18 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @if (count($errors) > 0)
                 @foreach ($errors->all() as $error)
-                    <div class="alert alert-warning">{{ $error }}</div>
+                    <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3" role="alert">
+                        <p>{{ $error }}</p>
+                    </div>
                 @endforeach
             @endif
             @if ($message = Session::get('error'))
-                <div class="alert alert-warning">
+                <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3" role="alert">
                     <p>{{ $message }}</p>
                 </div>
             @endif
             @if ($message = Session::get('success'))
-                <div class="alert alert-success">
+                <div class="bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 mb-3" role="alert">
                     <p>{{ $message }}</p>
                 </div>
             @endif
@@ -33,6 +35,13 @@
                     </div>
                     <div class="flex-auto text-right">
                         {{ $post->created_at->format('M d, Y, H:i') }}
+                    </div>
+                </div>
+                <div class="flex mt-2">
+                    <img class="flex h-10 w-10 mr-2 rounded-full object-cover"
+                        src="{{ $post->user->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                    <div class="flex mt-2">
+                        {{ $post->user->name }}
                     </div>
                 </div>
                 <p class="text-justify my-5">
@@ -77,11 +86,20 @@
                         {{ $post->steps }}
                     </p>
                 </div>
-                <form action="{{ route('wishlist.store') }}" method="post">
+
+                <a href="{{ route('showWishlist', $post->id) }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-bookmark" viewBox="0 0 16 16">
+                        <path
+                            d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                    </svg>
+                </a>
+
+                {{-- <form action="{{ route('wishlist.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="post_id" value={{ $post->id }}>
                     <button type="submit" class="btn btn-sm btn-outline-secondary">
-                        @if (isset($postwishlist) && $postwishlist)
+                        @if (isset($postWishlist) && $postWishlist)
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-bookmark-fill" viewBox="0 0 16 16">
                                 <path
@@ -97,7 +115,7 @@
                             Save meal
                         @endif
                     </button>
-                </form>
+                </form> --}}
             </div>
         </div>
     </div>

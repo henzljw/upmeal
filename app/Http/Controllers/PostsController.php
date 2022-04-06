@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\Cuisine;
+use App\Models\Wishlist;
 use App\Http\Requests\PostFormRequest;
 
 class PostsController extends Controller
@@ -77,7 +79,30 @@ class PostsController extends Controller
         $post = Post::where('slug', $slug)->first();
         if (!$post) {
             return redirect('/')->withErrors('Requested page not found');
+        } else {
+            // 
+            if(Auth::user()) {
+                $postUser = Auth::user();
+                $postWishlist = Wishlist::where('post_id', $post->id)
+                                    ->where('user_id', $postUser->id)        
+                                    ->first();
+                
+                $data = array(
+                    'title' => $post->title,
+                    'post' => $post,
+                    'postWishlist' => $postWishlist,
+                );
+            }
+            else {
+                $data = array(
+                    'title' => $post->title,
+                    'post' => $post,
+                );
+            }
+
+            return view('post.show', $data);
         }
+
         return view('post.show', ['post' => $post]);
     }
 

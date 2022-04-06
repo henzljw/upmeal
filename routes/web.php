@@ -58,9 +58,6 @@ Route::get('/search', function () {
     return view('search.search');
 })->name('search');
 
-// SAVE MEALS
-Route::resource('wishlist', WishlistController::class);
-
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // CHECKLIST & SHOPPING LIST
     Route::controller(ChecklistsController::class)->group(function () {
@@ -98,6 +95,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('library/{cuisine_slug}', 'showResults');
         // SHOW A SINGLE RECIPE IN CUISINE
         Route::get('library/{cuisine_slug}/{post_slug}', 'show');
+    });
+    // SAVE MEAL
+    Route::controller(WishlistController::class)->group(function () {
+        // SHOW WISHLIST
+        Route::get('/wishlist', 'index')->name('wishlist');
+        // SAVE MEAL
+        Route::get('/wishlist/{id}', 'showWishlist')->name('showWishlist');
+        // DELETE SAVED MEAL
+        Route::get('/destroy-wishlist/{id}', 'destroy')->name('wishlist.destroy');
     });
 });
 
