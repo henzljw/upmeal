@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CuisineController;
 use App\Http\Controllers\RecipeLibraryController;
+use App\Http\Controllers\WishlistController;
 use App\Http\Livewire\PostsList;
 use App\Http\Livewire\UsersList;
 use App\Http\Livewire\UsersProfile;
@@ -94,6 +95,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('library/{cuisine_slug}', 'showResults');
         // SHOW A SINGLE RECIPE IN CUISINE
         Route::get('library/{cuisine_slug}/{post_slug}', 'show');
+    });
+    // SAVE MEAL
+    Route::controller(WishlistController::class)->group(function () {
+        // SHOW WISHLIST
+        Route::get('/wishlist', 'index')->name('wishlist');
+        // SAVE MEAL
+        Route::get('/wishlist/{id}', 'showWishlist')->name('showWishlist');
+        // DELETE SAVED MEAL
+        Route::get('/destroy-wishlist/{id}', 'destroy')->name('wishlist.destroy');
     });
 });
 
