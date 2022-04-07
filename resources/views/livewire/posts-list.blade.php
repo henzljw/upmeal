@@ -3,9 +3,24 @@
 
 <div class="container mx-auto">
     <div class="w-30 mx-40 mb-10">
-        <h1 class="text-xl font-semibold mb-5">Recommended recipes</h1>
+        <div class="flex mb-5">
+            <div>
+                <h1 class="flex-auto text-xl font-semibold">Recommended meals</h1>
+            </div>
+            <div class="flex-auto text-right">
+                <a href="{{ url('/recommended') }}">Show more</a>
+            </div>
+        </div>
         <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
-            @foreach ($posts as $post)
+            @php
+
+                if(is_null($recposts)){
+
+                    $recposts = $posts;
+                }
+
+            @endphp
+            @foreach ($recposts as $post)
                 <div class="bg-white shadow-xl sm:rounded-lg px-5 py-5 mb-5">
                     <div>
                         <a class="text-xl font-semibold" href="./post/view/{{ $post->slug }}">

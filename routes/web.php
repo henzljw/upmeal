@@ -14,6 +14,7 @@ use App\Http\Livewire\PostsList;
 use App\Http\Livewire\UsersList;
 use App\Http\Livewire\UsersProfile;
 use App\Http\Livewire\RecentPosts;
+use App\Http\Livewire\RecommendedMeals;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,9 @@ Route::get('lists', PostsList::class);
 
 // SHOW RECENT RECIPES
 Route::get('recent', RecentPosts::class);
+
+// SHOW RECOMMENDED RECIPES
+Route::get('recommended', RecommendedMeals::class);
 
 // SEARCH RECIPES
 Route::get('/search', function () {
