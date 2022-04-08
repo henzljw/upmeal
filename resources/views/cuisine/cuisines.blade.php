@@ -83,7 +83,7 @@
                                 </td>
                                 <td class="p-4">
                                     <a href="{{ url('/delete-cuisine/' . $cuisine->id) }}"
-                                        onclick="return confirm('Are you sure to delete the selected cuisine?')"
+                                        onclick="return confirm('Are you sure to delete the selected meal type?')"
                                         class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                         Delete
                                     </a>
