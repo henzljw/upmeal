@@ -51,7 +51,7 @@
                             <form action="{{ route('posts.destroy', $posts->id) }}" class="inline-block">
                                 @method('DELETE')
                                 <button type="submit" name="delete" formmethod="POST"
-                                    onclick="return confirm('Are you sure to delete the selected items?')"
+                                    onclick="return confirm('Are you sure to delete the selected meal?')"
                                     class="text-sm bg-red-500 hover:bg-red-700 text-white py-2 px-3 rounded focus:outline-none focus:shadow-outline">Delete</button>
                                 {{ csrf_field() }}
                             </form>
