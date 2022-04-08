@@ -58,10 +58,12 @@
 
     @livewireScripts
 
-    {{-- CHATBOT --}}
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger intent="WELCOME" chat-title="MealBot" agent-id="51c34d55-72cb-47b4-b7bd-486748b09103"
-        language-code="en"></df-messenger>
+    @if (Auth::user()->user_type === 'USR')
+        {{-- CHATBOT --}}
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+        <df-messenger intent="WELCOME" chat-title="MealBot" agent-id="51c34d55-72cb-47b4-b7bd-486748b09103"
+            language-code="en"></df-messenger>
+    @endif
 </body>
 
 </html>

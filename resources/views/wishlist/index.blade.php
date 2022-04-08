@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex-auto">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Wishlists') }}
+                {{ __('Saved meals') }}
             </h2>
         </div>
     </x-slot>
