@@ -36,11 +36,11 @@
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                     {{ __('New user?') }}
                 </a>
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                @endif --}}
                 <x-jet-button>
                     {{ __('Log in') }}
                 </x-jet-button>
