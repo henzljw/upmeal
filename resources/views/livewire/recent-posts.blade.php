@@ -1,10 +1,10 @@
-{{-- Display all recent posts from DB --}}
+{{-- Display all recent meals from DB --}}
 {{-- recent-posts.blade.php --}}
 
 <x-slot name="header">
     <div class="flex">
         <h2 class="flex-auto font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Recent recipes') }}
+            {{ __('Recent meals') }}
         </h2>
     </div>
 </x-slot>

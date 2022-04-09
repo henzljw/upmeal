@@ -4,7 +4,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create recipe') }}
+            {{ __('Create new meal') }}
         </h2>
     </x-slot>
     <div class="py-12">
@@ -53,9 +53,9 @@
                             </div>
                         @endif
                     </div>
-                    {{-- CUISINES --}}
+                    {{-- MEAL TYPE --}}
                     <div class="form-group pt-4">
-                        <label for="cuisine_id" class="font-semibold">Cuisine</label>
+                        <label for="cuisine_id" class="font-semibold">Meal type</label>
                         <select name="cuisine_id"
                             class="form-select appearance-none
                         block
@@ -72,12 +72,12 @@
                         ease-in-out
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                            <option value="">-- Select cuisine --</option>
+                            <option value="">-- Select meal type --</option>
                             @foreach ($cuisine as $cuisineItem)
                                 <option value="{{ $cuisineItem->id }}">{{ $cuisineItem->name }}</option>
                             @endforeach
                         </select>
-                        <small class="font-medium">What kind of cuisine is for your recipe?</small>
+                        <small class="font-medium">What kind of meal type is for your recipe?</small>
                         @if ($errors->has('cuisine_id'))
                             <div class="flex p-2 mb-4 mt-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
                                 role="alert">

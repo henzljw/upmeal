@@ -48,7 +48,7 @@
                         <x-jet-nav-link href="{{ route('cuisines') }}" :active="request()->routeIs('cuisines')">
                             <img src="{{ asset('img/icons/food.png') }}" class="mr-2" alt="" width="20"
                                 height="20">
-                            {{ __('Cuisines') }}
+                            {{ __('Meal type') }}
                         </x-jet-nav-link>
                     </div>
                 @elseif (Auth::user()->user_type === 'USR')
@@ -289,7 +289,7 @@
                         {{ __('Users') }}
                     </x-jet-responsive-nav-link>
                     <x-jet-responsive-nav-link href="{{ route('cuisines') }}" :active="request()->routeIs('cuisines')">
-                        {{ __('Cuisines') }}
+                        {{ __('Meal type') }}
                     </x-jet-responsive-nav-link>
                 @elseif (Auth::user()->user_type === 'USR')
                     <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">

@@ -47,7 +47,7 @@
         @endif
     </div>
     <div class="my-20">
-        <h1 class="text-xl font-semibold mb-5">More recipes</h1>
+        <h1 class="text-xl font-semibold mb-5">More meals</h1>
         <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
             @foreach ($posts as $post)
                 <div class="bg-white shadow-xl sm:rounded-lg px-5 py-5 mb-5">
