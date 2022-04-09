@@ -8,7 +8,7 @@
             </div>
             <div class="flex-auto text-right">
                 <a href="/checklist" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Add grocery items
+                    Add grocery item
                 </a>
             </div>
         </div>

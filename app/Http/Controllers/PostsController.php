@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\Cuisine;
 use App\Models\Wishlist;
+use App\Models\Recomended;
 use App\Http\Requests\PostFormRequest;
 
 class PostsController extends Controller
@@ -80,13 +81,25 @@ class PostsController extends Controller
         if (!$post) {
             return redirect('/')->withErrors('Requested page not found');
         } else {
-            // 
+                $rec = Recomended::where('user_id',auth()->user()->id)->first();
+            if( is_null($rec) ){
+                $recommended = Recomended::create([
+                    'user_id'=>auth()->user()->id,
+                    'Cuisine_id'=>$post->cuisine_id,
+                ]);
+            }else{
+                $recommended = Recomended::where('user_id',auth()->user()->id)->update([
+
+                    'Cuisine_id'=>$post->cuisine_id,
+                ]);
+            }
+            //
             if(Auth::user()) {
                 $postUser = Auth::user();
                 $postWishlist = Wishlist::where('post_id', $post->id)
-                                    ->where('user_id', $postUser->id)        
+                                    ->where('user_id', $postUser->id)
                                     ->first();
-                
+
                 $data = array(
                     'title' => $post->title,
                     'post' => $post,
@@ -141,7 +154,7 @@ class PostsController extends Controller
             'ct_min' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:2048',
         ]);
-        
+
         $post->title = $request->title;
         $post->description = $request->description;
         $post->cuisine_id = $request->cuisine_id;
