@@ -3,15 +3,12 @@
         <div class="flex">
             <div class="flex-auto">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ __('Cuisines') }}
+                    {{ __('Meal type') }}
                 </h2>
             </div>
             <div class="flex-auto text-right">
                 <a href="/cuisine" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    <span>
-                        <i class="bi bi-plus-lg"></i>
-                    </span>
-                    Create cuisine
+                    Create meal type
                 </a>
             </div>
         </div>
@@ -34,23 +31,11 @@
                         </div>
                     </div>
                 @endif
-                {{-- <div class="flex">
-                    <div class="flex-auto text-2xl mb-4"></div>
-
-                    <div class="flex-auto text-right my-5">
-                        <a href="/cuisine" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            <span>
-                                <i class="bi bi-plus-lg"></i>
-                            </span>
-                            Create cuisines
-                        </a>
-                    </div>
-                </div> --}}
                 <table class="w-full text-md rounded mb-4">
                     <thead>
                         <tr class="border-b">
                             <th class="text-left p-3 px-5">ID</th>
-                            <th class="text-left p-3 px-5">Cuisines</th>
+                            <th class="text-left p-3 px-5">Meal type</th>
                             <th class="text-left p-3 px-5">Description</th>
                             <th class="text-left p-3 px-5">Slug</th>
                             <th class="text-left p-3 px-5">Created at</th>
@@ -98,7 +83,7 @@
                                 </td>
                                 <td class="p-4">
                                     <a href="{{ url('/delete-cuisine/' . $cuisine->id) }}"
-                                        onclick="return confirm('Are you sure to delete the selected cuisine?')"
+                                        onclick="return confirm('Are you sure to delete the selected meal type?')"
                                         class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                         Delete
                                     </a>

@@ -1,10 +1,10 @@
-{{-- Display all recent meals from DB --}}
-{{-- recent-posts.blade.php --}}
+{{-- Display all recommended meals --}}
+{{-- recommended-meals.blade.php --}}
 
 <x-slot name="header">
     <div class="flex">
         <h2 class="flex-auto font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Recent meals') }}
+            {{ __('Recommended meals') }}
         </h2>
     </div>
 </x-slot>
@@ -13,7 +13,15 @@
     <div class="container mx-auto">
         <div class="w-30 mx-40">
             <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
-                @foreach ($posts as $post)
+                @php
+
+                if(is_null($recposts)){
+
+                    $recposts = $posts;
+                }
+
+            @endphp
+                @foreach ($recposts as $post)
                     <div class="bg-white shadow-xl sm:rounded-lg px-5 py-5 mb-5">
                         <a class="text-xl font-semibold" href="./post/view/{{ $post->slug }}">
                             {{ $post->title }}

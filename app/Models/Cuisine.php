@@ -16,4 +16,9 @@ class Cuisine extends Model
         'slug',
         'description',
     ];
+
+    public function recomended()
+    {
+        return $this->hasOne(Recomended::class);
+    }
 }
