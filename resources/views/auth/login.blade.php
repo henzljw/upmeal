@@ -27,12 +27,12 @@
                     autocomplete="current-password" />
             </div>
 
-            <div class="block mt-4">
+            {{-- <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-jet-checkbox id="remember_me" name="remember" />
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
-            </div>
+            </div> --}}
 
             {{-- <div class="flex flex-row gap-13 items-center mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
@@ -48,7 +48,7 @@
                 </x-jet-button>
             </div> --}}
 
-            <div class="flex">
+            <div class="flex mt-10">
                 <a class="flex-auto mt-3 underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                     {{ __('New user?') }}
                 </a>
