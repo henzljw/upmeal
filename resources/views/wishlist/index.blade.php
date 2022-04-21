@@ -20,7 +20,7 @@
                 </div>
             @endif
             <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
-                @foreach ($postWishlist as $wish)
+                @forelse ($postWishlist as $wish)
                     <div class="bg-white shadow-xl sm:rounded-lg px-5 py-5 mb-5">
                         <div>
                             <a class="text-xl font-semibold" href="./post/view/{{ $wish->post->slug }}">
@@ -57,7 +57,9 @@
                             </button>
                         </form>
                     </div>
-                @endforeach
+                @empty
+                    <p class="mt-10">No saved meals yet.</p>
+                @endforelse
             </div>
         </div>
     </div>
