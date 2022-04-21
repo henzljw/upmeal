@@ -46,7 +46,17 @@
             <p class="mt-10">No results found using your search term.</p>
         @endif
     </div>
-    <div class="my-20">
+    <div class="my-10">
+        <h1 class="text-xl font-semibold mb-5">Browse all</h1>
+        <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
+            @foreach ($cuisines as $cuisine)
+                <div class="bg-white shadow-xl sm:rounded-lg px-5 py-5 mb-5">
+                    <a href="{{ url('library/' . $cuisine->slug) }}">{{ $cuisine->name }}</a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="my-10">
         <h1 class="text-xl font-semibold mb-5">More meals</h1>
         <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
             @foreach ($posts as $post)

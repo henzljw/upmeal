@@ -8,11 +8,11 @@ use App\Models\Post;
 
 class RecipeLibraryController extends Controller
 {
-    public function index()
-    {
-        $cuisines = Cuisine::all();
-        return view('recipe-library.recipe-library', compact('cuisines'));
-    }
+    // public function index()
+    // {
+    //     $cuisines = Cuisine::all();
+    //     return view('recipe-library.recipe-library', compact('cuisines'));
+    // }
 
     public function showResults(string $cuisine_slug)
     {
