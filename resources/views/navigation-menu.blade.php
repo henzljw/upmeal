@@ -72,7 +72,7 @@
                             {{ __('Search') }}
                         </x-jet-nav-link>
                     </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
+                    {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
                         <x-jet-nav-link href="{{ route('library') }}" :active="request()->routeIs('library')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-collection-fill mr-2" viewBox="0 0 16 16">
@@ -81,7 +81,7 @@
                             </svg>
                             {{ __('Library') }}
                         </x-jet-nav-link>
-                    </div>
+                    </div> --}}
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-center">
                         <x-jet-nav-link href="{{ route('checklists') }}" :active="request()->routeIs('checklists')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -298,9 +298,9 @@
                     <x-jet-responsive-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')">
                         {{ __('Search') }}
                     </x-jet-responsive-nav-link>
-                    <x-jet-responsive-nav-link href="{{ route('library') }}" :active="request()->routeIs('library')">
+                    {{-- <x-jet-responsive-nav-link href="{{ route('library') }}" :active="request()->routeIs('library')">
                         {{ __('Library') }}
-                    </x-jet-responsive-nav-link>
+                    </x-jet-responsive-nav-link> --}}
                     <x-jet-responsive-nav-link href="{{ route('checklists') }}" :active="request()->routeIs('checklists')">
                         {{ __('List') }}
                     </x-jet-responsive-nav-link>

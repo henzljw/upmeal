@@ -69,7 +69,7 @@
                 <img src="{{ Storage::url($post->image) }}" height="400" width="400" alt="image preview"
                     class="pt-5">
                 <div class="my-5">
-                    <h2 class="font-semibold">Cuisine</h2>
+                    <h2 class="font-semibold">Meal type</h2>
                     <p class="text-justify my-5">
                         {{ $post->cuisine->name }}
                     </p>
