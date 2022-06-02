@@ -13,5 +13,8 @@ The installation guides can be found at the [MANUAL.md](MANUAL.md) which is loca
 ## Changelog
 The changelog of the following application will be updated at the Releases section in the following repository.
 
+## Acknowledgement
+Thanks to my project supervisor, Dr. Chua Fang Fang for guiding and supervising me to bring my ideas into my Final Year Project.
+
 ## License
 Upmeal is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
