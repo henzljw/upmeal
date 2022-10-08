@@ -1,5 +1,5 @@
 # upmeal
-Upmeal is an intelligent meal recommender and sharing application which allows the user to share their meal recipes to their closer one. It also allow to recommend some meal ideas to the user who don't have any idea to cook their meal as well.
+Upmeal is a meal recommender and sharing application which allows the user to share their meal recipes to their closer one. It also allow to recommend some meal ideas to the user who don't have any idea to cook their meal as well.
 
 ## Features
 - Authentication (Login and register)
